@@ -1,0 +1,333 @@
+:root{
+  --tw-highlight-color: #004C4C;
+}
+
+.btn {
+    position: relative;
+    padding: 10px 29px 10px 20px;
+    font-size: 13px;
+    margin-top: 38px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.8s ease;
+    width: 130px;
+    z-index: 1;
+}
+
+.btn .circle {
+    position: absolute;
+    top: 50%;
+    left: 85%;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.8s ease;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.btn:hover {
+    background-color: #004C4C;
+}
+
+.btn:hover .circle {
+    width: 300%;
+    height: 300%;
+    background-color: #004C4C;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.chrome {
+    background-color: red;
+}
+
+.spinner {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+}
+
+.spinner div {
+    position: absolute;
+    width: 50%;
+    height: 150%;
+    background: #004C4C;
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+    animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
+}
+
+.spinner div:nth-child(1) {
+    --delay: 0.1;
+    --rotation: 36;
+    --translation: 150;
+}
+
+.spinner div:nth-child(2) {
+    --delay: 0.2;
+    --rotation: 72;
+    --translation: 150;
+}
+
+.spinner div:nth-child(3) {
+    --delay: 0.3;
+    --rotation: 108;
+    --translation: 150;
+}
+
+.spinner div:nth-child(4) {
+    --delay: 0.4;
+    --rotation: 144;
+    --translation: 150;
+}
+
+.spinner div:nth-child(5) {
+    --delay: 0.5;
+    --rotation: 180;
+    --translation: 150;
+}
+
+.spinner div:nth-child(6) {
+    --delay: 0.6;
+    --rotation: 216;
+    --translation: 150;
+}
+
+.spinner div:nth-child(7) {
+    --delay: 0.7;
+    --rotation: 252;
+    --translation: 150;
+}
+
+.spinner div:nth-child(8) {
+    --delay: 0.8;
+    --rotation: 288;
+    --translation: 150;
+}
+
+.spinner div:nth-child(9) {
+    --delay: 0.9;
+    --rotation: 324;
+    --translation: 150;
+}
+
+.spinner div:nth-child(10) {
+    --delay: 1;
+    --rotation: 360;
+    --translation: 150;
+}
+
+@keyframes spinner-fzua35 {
+
+    0%,
+    10%,
+    20%,
+    30%,
+    50%,
+    60%,
+    70%,
+    80%,
+    90%,
+    100% {
+        transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+    }
+
+    50% {
+        transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));
+    }
+}
+
+.slick-slider .slick-arrow {
+    display: none;
+    scale: 0;
+}
+
+.vertical-timeline-element-date {
+    color: rgb(255, 255, 255);
+}
+
+.animate-updown{
+    animation: updown 2s infinite;
+    transition: all 0.5s linear;
+}
+
+.resources .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:"400px";
+    height: 350px;
+    /* background: #444; */
+    border-radius: 10px;
+  }
+  
+  .resources .card {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+    padding: 2rem;
+    color: #aaa;
+    box-shadow: 0 .25rem .25rem rgba(0,0,0,0.2),
+      0 0 1rem rgba(0,0,0,0.2);
+    overflow: hidden;
+  }
+  
+  .resources .card__image-container {
+    /* margin: -2rem -2rem 1rem -2rem; */
+  }
+  
+  .resources .card__line {
+    opacity: 0;
+    animation: LineFadeIn .8s .8s forwards ease-in;
+  }
+  
+  .resources .card__image {
+    opacity: 0;
+    animation: ImageFadeIn .8s 1.4s forwards;
+  }
+  
+  .resources .card__title {
+    color: white;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+  }
+  
+  .resources .card__content {
+    margin-top: -1rem;
+    opacity: 0;
+    animation: ContentFadeIn .8s 1.6s forwards;
+  }
+  
+  .resources .card__svg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  .input-group {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .input-group input {
+    border-radius: 0.375rem;
+    border: 1px solid black;
+    outline: 0;
+    padding: 0.75rem 1rem;
+  }
+  
+  .input-group input:focus {
+    border:1px solid rgb(0, 0, 0);
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #004C4C;
+    cursor: pointer;
+    height: 0.5rem;
+    border-radius: 10px;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    background-color: #000000;
+    height: 1rem;
+    width: 2rem;   
+    border-radius: 5px; 
+ }
+  
+ .highlight::after{
+  background-color: #004C4C !important;
+ }
+  
+  @keyframes LineFadeIn {
+    0% {
+      opacity: 0;
+      d: path("M 0 300 Q 0 300 0 300 Q 0 300 0 300 C 0 300 0 300 0 300 Q 0 300 0 300 ");
+      stroke: #fff;
+    }
+  
+    50% {
+      opacity: 1;
+      d: path("M 0 300 Q 50 300 100 300 Q 250 300 350 300 C 350 300 500 300 650 300 Q 750 300 800 300");
+      stroke: #888BFF;
+    }
+  
+    100% {
+      opacity: 1;
+      d: path("M -2 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 802 400");
+      stroke: #545581;
+    }
+  }
+  
+  @keyframes ContentFadeIn {
+    0% {
+      transform: translateY(-1rem);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes ImageFadeIn {
+    0% {
+      transform: translate(-.5rem, -.5rem) scale(1.05);
+      opacity: 0;
+      filter: blur(2px);
+    }
+  
+    50% {
+      opacity: 1;
+      filter: blur(2px);
+    }
+  
+    100% {
+      transform: translateY(0) scale(1.0);
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+@keyframes updown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .vertical-timeline-element-date {
+        color: rgb(85, 85, 85);
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .div_group {
+        width: 300px !important;
+    }
+}
