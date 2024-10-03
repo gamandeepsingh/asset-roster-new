@@ -108,10 +108,10 @@ const SubHeadingBlock = ({ subHeading }) => {
             <dt className="inline font-semibold text-dark/90 text-start">
                 {subHeading?.examples?.exampleText}
             </dt>
-            <dd className="flex flex-col">
+            <dd className="flex flex-col mb-6">
                 {subHeading.examples?.slice(0, showAll ? subHeading.examples.length : 3).map((example, l) => (
                     <div key={l} className="mb-4">
-                        <h3 className="font-bold text-lg md:text-xl text-green  font-dmSans">
+                        <h3 className="font-bold text-lg md:text-xl text-green font-dmSans">
                             {example?.exampleText}
                         </h3>
                         <ul className="list-disc pl-5 space-y-0">
@@ -127,7 +127,7 @@ const SubHeadingBlock = ({ subHeading }) => {
                 {/* "Read More" Button */}
                 {subHeading.examples.length > 3 && (
                     <button
-                        className="w-fit rounded-md text-xs border-2 font-dmSans bg-darkGreen border-darkGreen px-6 py-3 font-semibold uppercase text-light transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-md active:shadow-none my-2 md:my-5 whitespace-nowrap"
+                        className=" w-fit rounded-md text-xs border-2 font-dmSans bg-darkGreen border-darkGreen px-6 py-3 font-semibold uppercase text-light transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-md active:shadow-none my-2 md:my-5 whitespace-nowrap"
                         onClick={() => setShowAll(!showAll)}
                     >
                         {showAll ? "Show Less" : "Read More"}
