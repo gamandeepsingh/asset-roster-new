@@ -4,7 +4,6 @@ import Spinner from "../utils/Spinner";
 
 export const TextParallaxContentExample = () => {
     const [data, setData] = useState([]);
-    
 
     useEffect(() => {
         client.fetch(`*[_type == "assetTag"] | order(categoryTitle asc){
@@ -76,24 +75,7 @@ export const TextParallaxContentExample = () => {
                                         </div>
                                         <dl className="mt-5 md:mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                                             {item.subHeadings?.map((subHeading, k) => (
-                                                <div key={k} className="relative">
-                                                    <dt className={`inline font-semibold text-dark/90 text-start `}>
-                                                        {subHeading?.examples?.exampleText}
-                                                    </dt>
-                                                    <dd className="flex flex-col">
-                                                        {subHeading.examples?.map((example, l) => (
-                                                            <span key={l} className="flex flex-col">
-                                                                <span className={`font-bold text-base md:text-xl text-green`}>{example?.exampleText}</span>
-                                                                <p className={`text-sm flex items-start mb-1 text-start`}>
-                                                                    <span className="font-black text-sm whitespace-nowrap">
-                                                                        {subHeading.heading}-&nbsp;
-                                                                    </span>{" "}
-                                                                    {example.details}
-                                                                </p>
-                                                            </span>
-                                                        ))}
-                                                    </dd>
-                                                </div>
+                                                <SubHeadingBlock subHeading={subHeading} key={k} />
                                             ))}
                                         </dl>
                                     </div>
@@ -111,8 +93,47 @@ export const TextParallaxContentExample = () => {
                     </section>
                 ))
             ) : (
-                <p><Spinner/></p>
+                <p><Spinner /></p>
             )}
+        </div>
+    );
+};
+
+// New SubHeadingBlock Component
+const SubHeadingBlock = ({ subHeading }) => {
+    const [showAll, setShowAll] = useState(false);
+
+    return (
+        <div className="relative">
+            <dt className="inline font-semibold text-dark/90 text-start">
+                {subHeading?.examples?.exampleText}
+            </dt>
+            <dd className="flex flex-col">
+                {subHeading.examples?.slice(0, showAll ? subHeading.examples.length : 3).map((example, l) => (
+                    <div key={l} className="mb-4">
+                        <h3 className="font-bold text-lg md:text-xl text-green  font-dmSans">
+                            {example?.exampleText}
+                        </h3>
+                        <ul className="list-disc pl-5 space-y-0">
+                            {example.details?.split(',').map((tagType, index) => (
+                                <li key={index} className="text-sm md:text-base text-gray-600 font-dmSans">
+                                    {tagType.trim()}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+
+                {/* "Read More" Button */}
+                {subHeading.examples.length > 3 && (
+                    <button
+                        className="w-fit rounded-md text-xs border-2 font-dmSans bg-darkGreen border-darkGreen px-6 py-3 font-semibold uppercase text-light transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-md active:shadow-none my-2 md:my-5 whitespace-nowrap"
+                        onClick={() => setShowAll(!showAll)}
+                    >
+                        {showAll ? "Show Less" : "Read More"}
+                    </button>
+                )}
+            </dd>
         </div>
     );
 };
