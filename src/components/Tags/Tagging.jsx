@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import client from "../../../sanityClient";
+import Spinner from "../utils/Spinner";
 
 export const TextParallaxContentExample = () => {
     const [data, setData] = useState([]);
+    
 
     useEffect(() => {
         client.fetch(`*[_type == "assetTag"] | order(categoryTitle asc){
@@ -32,11 +34,11 @@ export const TextParallaxContentExample = () => {
     const renderBlockContent = (block) => {
         switch (block.style) {
             case 'h1':
-                return <h2 className='mb-2 text-dark font-dmSans text-3xl font-bold'>{block.children.map(child => child.text).join('')}</h2>;
+                return <h2 className='mb-2 text-green font-dmSans text-3xl font-bold'>{block.children.map(child => child.text).join('')}</h2>;
             case 'h2':
-                return <h2 className='mb-2 text-dark font-dmSans text-2xl font-bold'>{block.children.map(child => child.text).join('')}</h2>;
+                return <h2 className='mb-2 text-lightYellow font-dmSans text-2xl font-bold'>{block.children.map(child => child.text).join('')}</h2>;
             case 'h3':
-                return <h2 className='mb-2 text-dark font-dmSans text-2xl font-bold'>{block.children.map(child => child.text).join('')}</h2>;
+                return <h2 className='mb-2 text-green/80 font-dmSans text-2xl font-bold'>{block.children.map(child => child.text).join('')}</h2>;
             case 'h4':
                 return <h2 className='mb-2 text-dark font-dmSans text-xl font-bold'>{block.children.map(child => child.text).join('')}</h2>;
             case 'h5':
@@ -62,17 +64,17 @@ export const TextParallaxContentExample = () => {
                             >
                                 <div className={`w-full md:w-1/2 lg:pr-8 lg:pt-4 h-full flex ${index % 2 === 1 ? "md:items-end md:justify-end" : ""}`}>
                                     <div className={`lg:max-w-lg`}>
-                                        <h2 className={`text-xl leading-7 text-lightYellow font-black font-dmSans`}>
+                                        <h2 className={`text-2xl leading-7 text-lightYellow font-black font-dmSans`}>
                                             {item.categoryTitle}
                                         </h2>
-                                        <div className="mt-6 text-lg leading-8 text-gray-600">
+                                        <div className="mt-3 md:mt-6 text-lg leading-8 text-gray-600">
                                             {item.body?.map((bodyItem, i) => (
                                                 <span key={i}>
                                                     {renderBlockContent(bodyItem)}
                                                 </span>
                                             ))}
                                         </div>
-                                        <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+                                        <dl className="mt-5 md:mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                                             {item.subHeadings?.map((subHeading, k) => (
                                                 <div key={k} className="relative">
                                                     <dt className={`inline font-semibold text-dark/90 text-start `}>
@@ -81,12 +83,12 @@ export const TextParallaxContentExample = () => {
                                                     <dd className="flex flex-col">
                                                         {subHeading.examples?.map((example, l) => (
                                                             <span key={l} className="flex flex-col">
-                                                                <span className={`font-bold text-xl`}>{example?.exampleText}</span>
+                                                                <span className={`font-bold text-base md:text-xl text-green`}>{example?.exampleText}</span>
                                                                 <p className={`text-sm flex items-start mb-1 text-start`}>
-                                                                    <span className="font-black text-sm">
-                                                                        {subHeading.heading}
+                                                                    <span className="font-black text-sm whitespace-nowrap">
+                                                                        {subHeading.heading}-&nbsp;
                                                                     </span>{" "}
-                                                                    - {example.details}
+                                                                    {example.details}
                                                                 </p>
                                                             </span>
                                                         ))}
@@ -109,7 +111,7 @@ export const TextParallaxContentExample = () => {
                     </section>
                 ))
             ) : (
-                <p>Loading content...</p>
+                <p><Spinner/></p>
             )}
         </div>
     );
