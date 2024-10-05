@@ -37,7 +37,7 @@ const WhoWeAre = () => {
   }, []);
 
   return (
-    <section className="px-4 md:px-28 flex flex-col lg:flex-row items-center gap-4 mt-16 md:mt-0 md:h-screen relative">
+    <section className="px-4 md:px-28 flex flex-col lg:flex-row items-center gap-4 mt-16 md:mt-0 md:min-h-screen relative">
       <div className="lg:w-1/2 mb-8 lg:mb-0" data-aos="fade-up">
         {about.heading && <span className='font-dmSans'>Who We Are</span>}
         <h2 className={`text-4xl font-bold mb-6 font-dmSans ${theme.heading}`}>{about.heading}</h2>

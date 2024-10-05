@@ -7,14 +7,12 @@ import { RiMenu5Fill } from "react-icons/ri";
 import { IoIosArrowDown } from "react-icons/io";
 
 
-
-
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
 
-    const toggleMenu = () => {
+    const   toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
@@ -59,11 +57,11 @@ const Navbar = () => {
                                 Services
                             </li>
                         </Link>
-                        <Link to="/tags">
-                            <li className={`hover:scale-105 px-6 transition-all duration-300 cursor-pointer ${location.pathname === '/tags' ? 'bg-green text-white rounded-md p-2' : ''}`}>  
+                        <div className="flex justify-center px-4 text-dark">
+                            <FlyoutLink href="#" FlyoutContent={TagsContent}>
                                 Tags
-                            </li>
-                        </Link>
+                            </FlyoutLink>
+                        </div>
                         <Link to="/softwares">
                             <li className={`hover:scale-105 px-6 transition-all duration-300 cursor-pointer ${location.pathname === '/softwares' ? 'bg-green text-white rounded-md p-2' : ''}`}>
                                 Software
@@ -71,11 +69,11 @@ const Navbar = () => {
                         </Link>
                         <Link to="/products">
                             <li className={`hover:scale-105 px-6 transition-all duration-300 cursor-pointer ${location.pathname === '/products' ? 'bg-green text-white rounded-md p-2' : ''}`}>
-                                Product
+                                Products
                             </li>
                         </Link>
                         <div className="flex justify-center px-4 text-dark">
-                            <FlyoutLink href="#" FlyoutContent={PricingContent}>
+                            <FlyoutLink href="#" FlyoutContent={ResourceContent}>
                                 Resources
                             </FlyoutLink>
                         </div>
@@ -116,7 +114,7 @@ const Navbar = () => {
                             </li>
                         </Link>
                         <div className="flex justify-center">
-                            <FlyoutLink href="#" FlyoutContent={PricingContent} className="">
+                            <FlyoutLink href="#" FlyoutContent={ResourceContent} className="" zIndex={20}>
                                 Resources
                             </FlyoutLink>
                         </div>
@@ -125,11 +123,11 @@ const Navbar = () => {
                                 Service
                             </li>
                         </Link>
-                        <Link to="/tags" onClick={toggleMenu}>
-                            <li className={` font-light hover:scale-105 transition-all duration-300 cursor-pointer transform ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-transform duration-1000 ease-in-out`}>
+                        <div className="flex justify-center">
+                            <FlyoutLink href="#" FlyoutContent={TagsContent} className="" zIndex={10}>
                                 Tags
-                            </li>
-                        </Link>
+                            </FlyoutLink>
+                        </div>
                         <Link to="/softwares" onClick={toggleMenu}>
                             <li className={` font-light hover:scale-105 transition-all duration-300 cursor-pointer transform ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-transform duration-300 ease-in-out`}>
                                 Softwares
@@ -157,7 +155,7 @@ const Navbar = () => {
     );
 }
 
-const FlyoutLink = ({ children, href, FlyoutContent }) => {
+const FlyoutLink = ({ children, href, FlyoutContent, zIndex=50 }) => {
     const [open, setOpen] = useState(false);
 
     const showFlyout = FlyoutContent && open;
@@ -166,7 +164,8 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
         <div
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
-            className="relative z-50"
+            className="relative"
+            style={{ zIndex: zIndex }}
         >
             <a href={href} className="relative text-dark font-dmSans flex items-center justify-center gap-1">
                 {children}
@@ -184,7 +183,7 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
                         exit={{ opacity: 0, y: 15 }}
                         style={{ translateX: "-50%" }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="absolute left-1/2 top-12  "
+                        className="absolute left-1/2 top-12"
                     >
                         <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
                         <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-light" />
@@ -196,7 +195,8 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
     );
 };
 
-const PricingContent = () => {
+
+const ResourceContent = () => {
     return (
         <div className="w-64 bg-light text-dark p-6 shadow-xl overflow-y-scroll md:overflow-hidden">
             <div className="mb-3 space-y-3">
@@ -218,13 +218,47 @@ const PricingContent = () => {
             <div className="mb-6 space-y-3">
                 <h3 className="font-semibold text-start underline font-dmSans">Learning</h3>
                 <a href="/resources/#learn" className="block font-dmSans text-sm hover:underline text-start">
-                    - Blogs/Articles
+                    - Tagging as a Services (TAAS)
                 </a>
                 <a href="/resources/#learn" className="block font-dmSans text-sm hover:underline text-start">
                     - Learning Center
                 </a>
                 <a href="/resources/#learn" className="block font-dmSans text-sm hover:underline text-start">
                     - Case Studies
+                </a>
+            </div>
+        </div>
+    );
+};
+const TagsContent = () => {
+    return (
+        <div className="w-64 bg-light text-dark p-6 shadow-xl overflow-y-scroll md:overflow-hidden">
+            <div className="mb-3 space-y-3">
+                <a href={"/tags"} className="font-semibold text-start underline font-dmSans">Tags</a>
+                <h3 className="font-semibold text-start font-dmSans">Asset Tagging by-</h3>
+                <a href="/tags/#asset-tags-by-application" className="font-dmSans block text-sm hover:underline text-start">
+                    - Application
+                </a>
+                <a href="/tags/#asset-tags-by-industry-type" className="block font-dmSans text-sm hover:underline text-start">
+                    - Industry Type
+                </a>
+                <a href="/tags/#asset-tags-by-technology-naming-barcode-rfid-and-others" className="block font-dmSans text-sm hover:underline text-start">
+                    - technology
+                </a>
+                <a href="/tags/#asset-tags-by-type-with-base-surfaces" className="block font-dmSans text-sm hover:underline text-start">
+                    - types
+                </a>
+            </div>
+            <div className="mb-6 space-y-3">
+                <h3 className="font-semibold text-start font-dmSans">Why tagging</h3>
+                <a href="/tags/#approach" className="block font-dmSans text-sm hover:underline text-start">
+                    - Our Approach
+                </a>
+                <a href="/tags/#whyChooseUs" className="block font-dmSans text-sm hover:underline text-start">
+                    - Why Choose Assets Roster
+                </a>
+                <a href="/tags/#benefits" className="block font-dmSans text-sm hover:underline text-start">
+                    - Benefits
                 </a>
             </div>
         </div>

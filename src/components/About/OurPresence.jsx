@@ -28,7 +28,7 @@ const OurPresence = () => {
   }, [])
   return (
     <section>
-      <div className="py-4 my-16 px-2 mx-auto max-w-screen-xl sm:py-4 lg:px-6">
+      <div className="py-4 my-16 mt-44 px-2 mx-auto max-w-screen-xl sm:py-4 lg:px-6">
         <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
           <h2 className="mb-4 text-4xl  font-extrabold text-gray-900 font-dmSans">
             Our Presence

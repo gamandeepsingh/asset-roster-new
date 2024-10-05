@@ -4,6 +4,7 @@ import WhoWeAre from '../components/About/WhoWeAre';
 import Newfooter from '../components/Common/Newfooter';
 import FAQs from '../components/Common/FAQs';
 import Spinner from '../components/utils/Spinner';
+import OurHistory from '../components/About/OurHistory';
 
 
 
@@ -23,6 +24,7 @@ const About = () => {
   return (
       <div>
         <WhoWeAre />
+        <OurHistory/>
         <OurPresence />
         <FAQs/>
         <Newfooter/>

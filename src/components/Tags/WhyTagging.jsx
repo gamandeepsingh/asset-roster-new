@@ -17,10 +17,10 @@ const WhyTagging = () => {
             .catch(console.error);
     }, []);
 
-    if (!data) return <div className="flex justify-center items-center h-screen text-xl"><Spinner /></div>; // Loading state
+    if (!data) return <div className="flex justify-center items-center h-screen text-xl"><Spinner /></div>; 
 
     return (
-        <div className="w-screen mx-auto px-2 md:px-4 space-y-8 flex flex-col items-center justify-center mb-10">
+        <div className="w-screen mx-auto px-2 md:px-4 space-y-8 flex flex-col items-center justify-center mb-10" id="benefits">
             <div className='md:max-w-6xl w-full px-4 flex flex-col items-center justify-center my-20'>
                 <h1 className='text-4xl font-black font-dmSans text-start md:text-center md:w-4/6'>
                     Benefits of Using <span className='text-lightYellow'>Asset Roster</span> for IT Asset Tracking software
@@ -41,7 +41,7 @@ const WhyTagging = () => {
             </div>
 
 
-            <div className='md:max-w-6xl w-full px-4 flex flex-col items-center justify-center'>
+            <div className='md:max-w-6xl w-full px-4 flex flex-col items-center justify-center' id="approach">
                 <h1 className='text-4xl font-black font-dmSans text-start md:text-center md:w-4/6'>
                     Our Approach to Tagging <span className='text-lightYellow'>Asset Roster</span>
                 </h1>

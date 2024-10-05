@@ -5,16 +5,20 @@ import { FaArrowRight } from "react-icons/fa6";
 
 const Newfooter = () => {
   const [email, setEmail] = useState('');
-  const backend = import.meta.env.VITE_APP_BACKEND;
+  const backend = import.meta.env.VITE_BACKEND_URL;
+  const [loading, setLoading] = useState(false);
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
-    await axios.post(`${backend}/api/subscribe`, { email })
+    setLoading(true);
+    await axios.post(`${backend}/subscription`, { email })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
       });
     setEmail('');
   };
@@ -54,11 +58,14 @@ const Newfooter = () => {
                 className="p-3 rounded-l-md placeholder:text-sm border-none outline-none text-black font-dmSans"
                 placeholder="Your Email Address"
                 value={email}
+                name='email'
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <button type="submit" className="bg-lightYellow p-3 px-8 rounded-r-md text-darkGreen text-sm group">
-                <FaArrowRight className=' group-hover:-rotate-45 transition-transform duration-200' />
+                {!loading ? <FaArrowRight className=' group-hover:-rotate-45 transition-transform duration-200' />:
+                  <div className="w-4 h-4 border-t-2 border-b-2 border-darkGreen rounded-full animate-spin"></div>
+                }
               </button>
             </form>
           </div>

@@ -4,10 +4,12 @@ import Spinner from "../utils/Spinner";
 
 export const TextParallaxContentExample = () => {
     const [data, setData] = useState([]);
-
     useEffect(() => {
         client.fetch(`*[_type == "assetTag"] | order(categoryTitle asc){
             categoryTitle,
+            slug{
+            current
+            },
             image{
                 asset->{
                     url,
@@ -55,7 +57,7 @@ export const TextParallaxContentExample = () => {
         <div className="bg-white w-screen mb-10">
             {data.length > 0 ? (
                 data.map((item, index) => (
-                    <section key={index} className="overflow-hidden bg-white py-4 sm:py-16">
+                    <section key={index} className="overflow-hidden bg-white py-4 sm:py-16" id={item.slug.current}>
                         <div className="mx-auto max-w-7xl px-6 lg:px-8">
                             <div
                                 className={`mx-auto h-fit flex flex-wrap flex-row ${index % 2 === 1 ? "md:flex-row-reverse" : ""
@@ -99,7 +101,6 @@ export const TextParallaxContentExample = () => {
     );
 };
 
-// New SubHeadingBlock Component
 const SubHeadingBlock = ({ subHeading }) => {
     const [showAll, setShowAll] = useState(false);
 

@@ -73,7 +73,7 @@ const Stats = () => {
                 </div>
 
                 <div className="flex flex-col items-center justify-start min-w-[200px] min-h-[136px]">
-                    <div className=" text-[35px] sm:text-[50px] font-bold">₹<span className='counter' data-count="10000">0</span>cr</div>
+                    <div className=" text-[35px] sm:text-[50px] font-bold">₹<span className='counter' data-count="100000">0</span>cr</div>
                     <div className='w-full flex flex-col justify-center items-center'>
                         <div className='text-xl sm:text-2xl font-semibold font-dmSans'>Worth</div>
                         <div className='text-xl sm:text-lg text-dark/80 w-5/6 text-center text-nowrap font-dmSans'>of Capitalization</div>

@@ -23,14 +23,13 @@ const WhyChooseUs = () => {
             .then((res) => {
                 setAbout(res[0]);
                 // console.log(res[0]);
-
             })
             .catch((err) => console.log(err));
     }, []);
     if (!data) return <div className="flex justify-center items-center h-screen text-xl"><Spinner /></div>;
 
     return (
-        <div className="w-screen mx-auto px-2 md:px-4 space-y-8 flex flex-col items-center justify-center">
+        <div className="w-screen mx-auto px-2 md:px-4 space-y-8 flex flex-col items-center justify-center" id='whyChooseUs'>
             <div className='md:max-w-6xl w-full px-4 flex flex-col items-center justify-center my-5 md:my-20'>
                 <h1 className='text-4xl font-black font-dmSans text-start md:text-center md:w-4/6'>
                     Why Choose <span className='text-lightYellow'>Asset Roster</span> for IT Asset Tracking?
