@@ -217,13 +217,13 @@ const ResourceContent = () => {
             </div>
             <div className="mb-6 space-y-3">
                 <h3 className="font-semibold text-start underline font-dmSans">Learning</h3>
-                <a href="/resources/#learn" className="block font-dmSans text-sm hover:underline text-start">
-                    - Tagging as a Services (TAAS)
+                <a href="/resources/#blogs" className="block font-dmSans text-sm hover:underline text-start">
+                    - Blog
                 </a>
                 <a href="/resources/#learn" className="block font-dmSans text-sm hover:underline text-start">
                     - Learning Center
                 </a>
-                <a href="/resources/#learn" className="block font-dmSans text-sm hover:underline text-start">
+                <a href="/resources/#caseStudies" className="block font-dmSans text-sm hover:underline text-start">
                     - Case Studies
                 </a>
             </div>

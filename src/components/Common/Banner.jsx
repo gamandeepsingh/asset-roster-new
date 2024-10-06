@@ -7,7 +7,7 @@ import { LiaLinkedinIn } from 'react-icons/lia';
 const Banner = () => {
   return (
     <div className='z-[999] w-screen h-40px min-h-40px bg-green absolute top-0 left-0 right-0 flex  items-center before:absolute'>
-        <div className='w-full h-30px flex justify-between md:justify-end items-center gap-4 mr-2 md:mr-20 '>
+        <div className='w-full h-30px flex justify-between md:justify-end items-center gap-4 mr-2 md:mr-20 pl-1 md:pl-0'>
             <a href='tel:+919958822552' className='flex'>
                 <span className='text-green max-sm:text-light text-xs whitespace-nowrap'><span className=''>Call Us:</span> +91 9958822552</span>
             </a>

@@ -26,12 +26,12 @@ const TagHero = () => {
       .catch(console.error);
   }, [])
   return (
-    <div data-aos="fade-up" className=" relative py-16">
+    <div data-aos="fade-up" className="min-h-[660px] relative py-16 flex flex-col items-center justify-center">
       <div className='absolute hidden md:block w-44 right-0 translate-y-1/2 top-1 '>
-        <img src={svg1} className='animate-updown ' alt="" />
+        <img src={svg1} className='animate-updown' alt="" />
       </div>
-      <div className='absolute hidden md:block w-44 left-0  translate-y-1/2 top-1/3 '>
-        <img src={svg2} className='animate-updown ' alt="" />
+      <div className='absolute hidden md:block w-44 left-0  translate-y-1/2 top-2/4 '>
+        <img src={svg2} className='animate-updown' alt="" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 relative">

@@ -118,7 +118,7 @@ const SubHeadingBlock = ({ subHeading }) => {
                         <ul className="list-disc pl-5 space-y-0">
                             {example.details?.split(',').map((tagType, index) => (
                                 <li key={index} className="text-sm md:text-base text-gray-600 font-dmSans">
-                                    {tagType.trim()}
+                                    {tagType}
                                 </li>
                             ))}
                         </ul>
